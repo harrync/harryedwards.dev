@@ -46,7 +46,7 @@ export default class NotionService {
         property: "Slug",
         formula: {
           // @ts-ignore
-          text: {
+          string: {
             equals: slug, // slug
           },
         },
@@ -79,17 +79,21 @@ export default class NotionService {
 
   private static pageToPostTransformer(page: any): BlogPost {
     let cover = page.cover;
-    console.log(cover);
-    switch (cover.type) {
-      case "file":
-        cover = page.cover.file;
-        break;
-      case "external":
-        cover = page.cover.external.url;
-        break;
-      default:
-        // Add default cover image if you want...
-        cover = "";
+
+    if (cover) {
+      switch (cover.type) {
+        case "file":
+          cover = page.cover.file;
+          break;
+        case "external":
+          cover = page.cover.external.url;
+          break;
+        default:
+          // Add default cover image if you want...
+          cover = "";
+      }
+    } else {
+      cover = "";
     }
 
     return {

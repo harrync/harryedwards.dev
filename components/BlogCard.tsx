@@ -1,17 +1,17 @@
-import { FunctionComponent } from "react";
-import Link from "next/link";
-import { BlogPost } from "@ts/schema";
-import dayjs from "dayjs";
+import { FunctionComponent } from 'react'
+import Link from 'next/link'
+import { BlogPost } from '@ts/schema'
+import dayjs from 'dayjs'
 
 type BlogCardProps = {
-  post: BlogPost;
-};
-const localizedFormat = require("dayjs/plugin/localizedFormat");
-dayjs.extend(localizedFormat);
+  post: BlogPost
+}
+const localizedFormat = require('dayjs/plugin/localizedFormat')
+dayjs.extend(localizedFormat)
 
 const BlogCard: FunctionComponent<BlogCardProps> = ({ post }) => {
   return (
-    <Link href={`/post/${post.slug}`}>
+    <Link href={`/${post.slug}`}>
       <a className="transition duration-300 hover:scale-105">
         <div
           key={post.title}
@@ -24,7 +24,7 @@ const BlogCard: FunctionComponent<BlogCardProps> = ({ post }) => {
             <div className="flex-1">
               <span className="block mt-2">
                 <h4 className="text-xs font-medium text-gray-600">
-                  {dayjs(post.date).format("LL")}
+                  {dayjs(post.date).format('LL')}
                 </h4>
               </span>
               <span className="block mt-2">
@@ -52,7 +52,7 @@ const BlogCard: FunctionComponent<BlogCardProps> = ({ post }) => {
         </div>
       </a>
     </Link>
-  );
-};
+  )
+}
 
-export default BlogCard;
+export default BlogCard

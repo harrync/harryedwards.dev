@@ -1,7 +1,13 @@
-type tHeader = {
-  title: string;
-};
+import Link from 'next/link'
 
-export default function Header({ title }: tHeader) {
-  return <h1 className="title">{title}</h1>;
+export default function Header() {
+  return (
+    <header>
+      <Link href="/">Home</Link>
+
+      <nav>
+        <Link href="/">Home</Link>
+      </nav>
+    </header>
+  )
 }

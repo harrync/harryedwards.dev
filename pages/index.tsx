@@ -1,37 +1,37 @@
-import { GetStaticProps, InferGetStaticPropsType } from "next";
-import Head from "next/head";
-import { BlogPost } from "@ts/schema";
-import NotionService from "@services/notion-service";
-import BlogCard from "@components/BlogCard";
+import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import Head from 'next/head'
+import { BlogPost } from '@ts/schema'
+import NotionService from '@services/notion-service'
+import BlogCard from '@components/BlogCard'
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const notionService = new NotionService();
-  const posts = await notionService.getPublishedBlogPosts();
+  const notionService = new NotionService()
+  const posts = await notionService.getPublishedBlogPosts()
 
   return {
     props: {
       posts,
     },
-  };
-};
+  }
+}
 
 const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const title = "Test Blog";
-  const description = "Welcome to my Notion Blog.";
+  const title = 'Test Blog'
+  const description = 'Welcome to my Notion Blog.'
 
   return (
     <>
       <Head>
         <title>{title}</title>
         <meta
-          name={"description"}
-          title={"description"}
+          name={'description'}
+          title={'description'}
           content={description}
         />
-        <meta name={"og:title"} title={"og:title"} content={title} />
+        <meta name={'og:title'} title={'og:title'} content={title} />
         <meta
-          name={"og:description"}
-          title={"og:description"}
+          name={'og:description'}
+          title={'og:description'}
           content={title}
         />
       </Head>
@@ -53,7 +53,7 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
         </main>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
