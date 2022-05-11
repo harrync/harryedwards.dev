@@ -1,5 +1,5 @@
 import { Client } from "@notionhq/client";
-import { BlogPost, PostPage } from "@ts/schema";
+import { BlogPost, PostPage } from "../@types/schema";
 import { NotionToMarkdown } from "notion-to-md";
 
 export default class NotionService {
@@ -45,6 +45,7 @@ export default class NotionService {
       filter: {
         property: "Slug",
         formula: {
+          // @ts-ignore
           text: {
             equals: slug, // slug
           },
@@ -78,7 +79,8 @@ export default class NotionService {
 
   private static pageToPostTransformer(page: any): BlogPost {
     let cover = page.cover;
-    switch (cover) {
+    console.log(cover);
+    switch (cover.type) {
       case "file":
         cover = page.cover.file;
         break;
