@@ -31,16 +31,18 @@ export const FooterImpl: React.FC = () => {
 
   return (
     <footer className={styles.footer}>
-      <div className={styles.copyright}>Copyright 2022 {config.author}</div>
+      <div className={styles.copyright}>
+        Copyright 2022 {config.author} | Powered by Notion
+      </div>
 
       <div className={styles.settings}>
         {hasMounted && (
           <a
             className={styles.toggleDarkMode}
-            href='#'
-            role='button'
+            href="#"
+            role="button"
             onClick={onToggleDarkMode}
-            title='Toggle dark mode'
+            title="Toggle dark mode"
           >
             {isDarkMode ? <IoMoonSharp /> : <IoSunnyOutline />}
           </a>
@@ -53,8 +55,8 @@ export const FooterImpl: React.FC = () => {
             className={styles.twitter}
             href={`https://twitter.com/${config.twitter}`}
             title={`Twitter @${config.twitter}`}
-            target='_blank'
-            rel='noopener noreferrer'
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <FaTwitter />
           </a>
@@ -65,8 +67,8 @@ export const FooterImpl: React.FC = () => {
             className={styles.zhihu}
             href={`https://zhihu.com/people/${config.zhihu}`}
             title={`Zhihu @${config.zhihu}`}
-            target='_blank'
-            rel='noopener noreferrer'
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <FaZhihu />
           </a>
@@ -77,8 +79,8 @@ export const FooterImpl: React.FC = () => {
             className={styles.github}
             href={`https://github.com/${config.github}`}
             title={`GitHub @${config.github}`}
-            target='_blank'
-            rel='noopener noreferrer'
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <FaGithub />
           </a>
@@ -89,8 +91,8 @@ export const FooterImpl: React.FC = () => {
             className={styles.linkedin}
             href={`https://www.linkedin.com/in/${config.linkedin}`}
             title={`LinkedIn ${config.author}`}
-            target='_blank'
-            rel='noopener noreferrer'
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <FaLinkedin />
           </a>
