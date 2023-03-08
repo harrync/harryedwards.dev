@@ -32,7 +32,7 @@ export const FooterImpl: React.FC = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.copyright}>
-        Copyright 2022 {config.author} | Powered by Notion
+        Copyright 2023 {config.author} | Powered by Notion
       </div>
 
       <div className={styles.settings}>
